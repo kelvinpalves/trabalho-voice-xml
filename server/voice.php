@@ -13,15 +13,15 @@ print ("<script>
 				var ALIQUOTA_09 = {de: 1659.39, ate: 2765.66};
 				var ALIQUOTA_11 = {de: 2765.67, ate: 5531.31};
 				var TETO        = 5531.31;
- 
+		
 				if (salario >= ALIQUOTA_08.de && salario <= ALIQUOTA_08.ate) {
-				  return salario - (salario * 0.08);
+				  return salario * 0.08;
 				} else if (salario >= ALIQUOTA_09.de && salario <= ALIQUOTA_09.ate) {
-				  return salario - (salario * 0.09);
+				  return salario * 0.09;
 				} else if (salario >= ALIQUOTA_11.de && salario <= ALIQUOTA_11.ate) {
-				  return salario - (salario * 0.11);
+				  return salario * 0.11;
 				} else {
-				  return salario - (TETO * 0.11);
+				  return TETO * 0.11;
 				}
 			}
 
@@ -33,7 +33,7 @@ print ("<script>
 				var ALIQUOTA_27	= {de: 4664.69};	
 			  
 				if (salario >= ALIQUOTA_00.de && salario <= ALIQUOTA_00.ate) {
-					return salario;
+					return 0;
 				} else if (salario >= ALIQUOTA_07.de && salario <= ALIQUOTA_07.ate) {
 					return salario * 0.075;
 				} else if (salario >= ALIQUOTA_15.de && salario <= ALIQUOTA_15.ate) {
@@ -47,7 +47,8 @@ print ("<script>
 
 			function calcularSalarioLiquido(s) {
 				var salario = parseFloat(s, '0');
-				return (salario - calcularDescontoIRRF(calcularDescontoINSS(salario))).toFixed(2);
+				salario -= calcularDescontoINSS(salario);
+				return (salario - calcularDescontoIRRF(salario)).toFixed(2);
 			}
 		]]>  
 	</script>");
