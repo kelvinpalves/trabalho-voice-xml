@@ -40,7 +40,7 @@ print ("<script>
 					return salario * 0.15;
 				} else if (salario >= ALIQUOTA_22.de && salario <= ALIQUOTA_22.ate) {
 					return salario * 0.225;
-				} else if (salario >= ALIQUOTA_25.de) {
+				} else if (salario >= ALIQUOTA_27.de) {
 					return salario * 0.275;
 				}
 			}
