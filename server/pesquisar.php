@@ -8,6 +8,10 @@ $salarioLiquido = $_REQUEST["salarioLiquido"];
 // $salario = 4090;
 // $salarioLiquido = 3400;
 
+print_r($nome);
+print_r($salario);
+print_r($salarioLiquido);
+
 require_once('banco.php');
 
 $conn = conectar();
