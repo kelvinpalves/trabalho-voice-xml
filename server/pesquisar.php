@@ -4,10 +4,6 @@ $nome = $_REQUEST["nomeBanco"];
 $salario = $_REQUEST["salario"];
 $salarioLiquido = $_REQUEST["salarioLiquido"];
 
-// $nome = 'teste';
-// $salario = 4090;
-// $salarioLiquido = 3400;
-
 require_once('banco.php');
 
 $conn = conectar();

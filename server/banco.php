@@ -12,7 +12,12 @@ function atualizarPessoaPorNome($conn, $nome, $salario, $liquido) {
 
 function buscarPessoas($conn) {
 	try {
-		$stmt = $conn->query("SELECT nome FROM pessoa");
+		$stmt = $conn
+		->query("
+			SELECT nome, 
+				case when bruto is null then 0 else bruto end as bruto, 
+				case when liquido is null then 0 else liquido end as liquido 
+				FROM pessoa");
 		$array = $stmt->fetchAll();
 
 		return $array;

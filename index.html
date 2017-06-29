@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Trabalho de VoiceXML</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container" ng-controller="Dashboard as vm" style="padding-top: 50px;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+    			<h3 class="panel-title">Lista de Pessoas</h3>
+  			</div>	
+		    <div class="panel-body">
+		    	<table class="table table-striped">
+		    		<thead>
+		    			<tr>
+		    				<th>Nome</th>
+		    				<th>Salário Bruto</th>
+		    				<th>Salário Líquido</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="pessoa in vm.pessoas">
+		    				<td>{{ pessoa.nome }}</td>
+		    				<td>{{ pessoa.bruto | currency }}</td>
+		    				<td>{{ pessoa.liquido | currency }}</td>
+		    			</tr>
+		    		</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+	<script type="text/javascript" src="src/app/app.module.js"></script>
+	<script type="text/javascript" src="src/app/dashboard/dashboard.module.js"></script>
+	<script type="text/javascript" src="src/app/dashboard/dashboard.js"></script>
+</body>
+</html>

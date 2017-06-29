@@ -1,0 +1,10 @@
+{
+  "name": "Trabalho de VoiceXML",
+  "homepage": "https://github.com/kelvinpalves/trabalho-voice-xml",
+  "authors": [
+    "Kelvin Alves <kelvinpalves@gmail.com>"
+  ],
+  "description": "Trabalho de VoiceXML - Atualizar salário bruto e líquido por nome.",
+  "main": "",
+  "license": "MIT"
+}
