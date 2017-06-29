@@ -22,7 +22,6 @@
 				vm.pessoas = response.data;
 			}
 		}
-
 	}
 
 })();
