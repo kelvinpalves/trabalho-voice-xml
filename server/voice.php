@@ -1,8 +1,8 @@
 <?php
 
 require ('banco.php');
-
-$nomes = buscarPessoas(conectar());
+$nomes   = buscarPessoas(conectar());
+$strNome = '';
 
 print ('<?xml version="1.0" encoding="UTF-8"?>');
 print ('<vxml version = "2.1" xml:lang="pt-BR">');
@@ -52,37 +52,34 @@ print ("<script>
 			}
 		]]>  
 	</script>");
+
 print ('<var name="nomeBanco" expr="" />');
 print ('<var name="salarioLiquido" expr="0" />');
 print ('<var name="salario" expr="0" />');
 
 print ('<form>');
-print ('<field name="nome">');
-print ('<prompt>Informe o nome desejado</prompt>');
-print ('<grammar>');
-print ('[');
+print ('	<field name="nome">');
+print ('		<prompt>Informe o nome desejado</prompt>');
+print ('		<grammar>');
+print ('			[');
 
-$strNome = '';
-foreach ($nomes as $key => $value) {
-	$strNome .= '(' . $value['nome'] . ') ';
-}
+foreach ($nomes as $key => $value) $strNome .= '(' . $value['nome'] . ') ';
 
 print (trim($strNome) . ']');
-print ('</grammar>');
-print ('<filled>');
-print ('<assign name="nomeBanco" expr="nome" />');
-print ('<goto next="#detalhes" />');
-print ('</filled>');
-print ('</field>');
+print ('		</grammar>');
+print ('		<filled>');
+print ('			<assign name="nomeBanco" expr="nome" />');
+print ('			<goto next="#detalhes" />');
+print ('		</filled>');
+print ('	</field>');
 print ('</form>');
 print ('<form id="detalhes">');
-print ('<field name="salario" type="digits">');
-print ('<prompt>Fale seu salário número por número.</prompt>');
-print ('<filled>');
-print ('<assign name="salarioLiquido" expr="calcularSalarioLiquido(salario)" />');
-print ('<submit method="post" namelist="nomeBanco salario salarioLiquido" next="http://forgeit.com.br/unisc/server/pesquisar.php"/>');
-print ('</filled>');
-print ('</field>');
+print ('	<field name="salario" type="digits">');
+print ('		<prompt>Fale seu salário número por número.</prompt>');
+print ('		<filled>');
+print ('			<assign name="salarioLiquido" expr="calcularSalarioLiquido(salario)" />');
+print ('			<submit method="post" namelist="nomeBanco salario salarioLiquido" next="http://forgeit.com.br/unisc/server/pesquisar.php"/>');
+print ('		</filled>');
+print ('	</field>');
 print ('</form>');
-
 print ('</vxml>');
